@@ -8,7 +8,18 @@
 </head>
 
 <body>
-   <h1>投稿一覧</h1>
+   @if($posts->isEmpty())
+        <p>投稿はまだありません。</p>
+    @else
+        <ul>
+            @foreach($posts as $post)
+                <li>
+                    <h3>{{ $post->title }}</h3>
+                    <p>{{ $post->content }}</p>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 </body>
 
 </html>
